@@ -7,3 +7,11 @@
 -   'Remove book' button
 -   Index
 -   'Read' button
+
+section button
+
+1. html structure
+2. modal structure
+3. rendering
+4. form validation js
+5. styling modal

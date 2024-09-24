@@ -15,3 +15,7 @@ body {
 h1 {
 	font-size: 3.5rem;
 }
+
+.book {
+	border: 3px solid black;
+}
