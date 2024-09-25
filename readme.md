@@ -3,10 +3,10 @@
 -   Take user's info and store the new book objects into an array
 -   Display as cards
 -   'New Book' button brigs up the form as a modal with the fields: author, title, number of pages, whether it’s been read
--   'Submit' button event.preventDefault()
+-   'Submit' button
 -   'Remove book' button
--   Index
 -   'Read' button
+-   Message error if 'read' not chosen
 
 section button
 

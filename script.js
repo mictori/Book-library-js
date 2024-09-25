@@ -5,12 +5,38 @@ const newBookBtn = document.querySelector('.new-book-btn');
 const modal = document.querySelector('.modal');
 const submitBtn = document.querySelector('.submit-btn');
 const modalForm = document.querySelector('.modal-form');
+const removeBtn = document.querySelector('.remove-book-btn');
 
 function Book(title, author, pages, isRead) {
 	this.title = title;
 	this.author = author;
 	this.pages = pages;
 	this.isRead = isRead;
+}
+
+function renderBooks() {
+	booksContainer.innerHTML = myLibrary
+		.map((book) => {
+			const bookId = myLibrary.indexOf(book);
+			book.id = bookId;
+
+			return `<section class="book">
+                    <h3>${book.title}</h3>
+                    <p>Author: ${book.author}</p>
+                    <p>Pages: ${book.pages}</p>
+                    <div class='read-label'>${
+						book.isRead ? 'Read' : 'Unread'
+					}</div>
+                    <button 
+                        type="button" 
+                        class="remove-book-btn" 
+                        onClick="removeBook(${bookId})"
+                        >
+                            REMOVE FROM LIBRARY
+                        </button>
+                </section>`;
+		})
+		.join(' ');
 }
 
 function addBookToLibrary() {
@@ -27,18 +53,12 @@ function addBookToLibrary() {
 	modal.close();
 	modalForm.reset();
 
-	booksContainer.innerHTML = myLibrary
-		.map((book) => {
-			return `<section class='book' id='${myLibrary.indexOf(book)}'>
-	                <h3>${book.title}</h3>
-                    <p>Author: ${book.author}</p>
-                    <p>Pages: ${book.pages}</p>
-                    <div class='read-label'>${
-						book.isRead ? 'Read' : 'Unread'
-					}</div>
-	            </section>`;
-		})
-		.join(' ');
+	renderBooks();
+}
+
+function removeBook(id) {
+	myLibrary.splice(id, 1);
+	renderBooks();
 }
 
 newBookBtn.addEventListener('click', () => {
