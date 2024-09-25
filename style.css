@@ -12,6 +12,11 @@ body {
 		Roboto, sans-serif;
 }
 
+input,
+button {
+	font: inherit;
+}
+
 h1 {
 	font-size: 3.5rem;
 }

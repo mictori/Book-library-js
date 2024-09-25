@@ -10,7 +10,57 @@
 		<main>
 			<div class="wrapper">
 				<h1>Library</h1>
-				<div class="book-container"></div>
+				<button type="button" class="new-book-btn">NEW BOOK</button>
+				<dialog class="modal">
+					<form class="modal-form" method="dialog">
+						<h3>Add a new book</h3>
+						<div>
+							<label for="book-title">Title:</label>
+							<input type="text" id="book-title" />
+						</div>
+						<div>
+							<label for="book-author">Author:</label>
+							<input type="text" id="book-author" />
+						</div>
+						<div>
+							<label for="book-pages">Number of pages:</label>
+							<input type="number" id="book-pages" />
+						</div>
+						<fieldset>
+							<legend>The book is:</legend>
+							<div>
+								<input
+									type="radio"
+									id="read"
+									value="read"
+									name="is-read"
+								/>
+								<label for="read">Read</label>
+							</div>
+							<div>
+								<input
+									type="radio"
+									id="unread"
+									value=""
+									name="is-read"
+								/>
+								<label for="unread">Not read yet</label>
+							</div>
+						</fieldset>
+						<button type="button" class="submit-btn">
+							ADD BOOK
+						</button>
+					</form>
+				</dialog>
+				<div class="book-container">
+					<section class="book" id="">
+						<h3>Harry Potter and the Chamber of Secrets</h3>
+						<p>Author: J. K. Rowling</p>
+						<p>Pages: 251</p>
+						<div class="read-label">Read</div>
+					</section>
+					`
+				</div>
 			</div>
 		</main>
 		<script src="script.js"></script>
