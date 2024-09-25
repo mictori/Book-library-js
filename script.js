@@ -5,7 +5,6 @@ const newBookBtn = document.querySelector('.new-book-btn');
 const modal = document.querySelector('.modal');
 const submitBtn = document.querySelector('.submit-btn');
 const modalForm = document.querySelector('.modal-form');
-const removeBtn = document.querySelector('.remove-book-btn');
 
 function Book(title, author, pages, isRead) {
 	this.title = title;
@@ -24,16 +23,22 @@ function renderBooks() {
                     <h3>${book.title}</h3>
                     <p>Author: ${book.author}</p>
                     <p>Pages: ${book.pages}</p>
-                    <div class='read-label'>${
-						book.isRead ? 'Read' : 'Unread'
-					}</div>
+                    <div class="read-label">
+						<button
+							type="button"
+							class="read-toggle"
+							onClick="toggleRead(${bookId})"
+						>
+							Mark as ${book.isRead ? 'UNREAD' : 'READ'}
+						</button>
+					</div>
                     <button 
                         type="button" 
                         class="remove-book-btn" 
                         onClick="removeBook(${bookId})"
                         >
                             REMOVE FROM LIBRARY
-                        </button>
+                    </button>
                 </section>`;
 		})
 		.join(' ');
@@ -56,8 +61,19 @@ function addBookToLibrary() {
 	renderBooks();
 }
 
+function toggleRead(id) {
+	myLibrary.forEach((book) => {
+		if (book.id === id) {
+			book.isRead = !book.isRead;
+		}
+	});
+
+	renderBooks();
+}
+
 function removeBook(id) {
 	myLibrary.splice(id, 1);
+
 	renderBooks();
 }
 
