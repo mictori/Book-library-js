@@ -15,3 +15,7 @@ section button
 3. rendering
 4. form validation js
 5. styling modal
+6. toggle class read +
+7. height of book grid
+8. delete btn
+9. required fields form

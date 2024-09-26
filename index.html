@@ -7,52 +7,67 @@
 		<title>Mictori's Library</title>
 	</head>
 	<body>
+		<header class="header-wrapper">
+			<h1>Library</h1>
+		</header>
 		<main>
+			<dialog class="modal">
+				<form class="modal-form" method="dialog">
+					<h3>Add a new book</h3>
+					<div>
+						<label for="book-title">Title:</label>
+						<input type="text" id="book-title" />
+					</div>
+					<div>
+						<label for="book-author">Author:</label>
+						<input type="text" id="book-author" />
+					</div>
+					<div>
+						<label for="book-pages">Number of pages:</label>
+						<input type="number" id="book-pages" />
+					</div>
+					<fieldset>
+						<legend>The book is:</legend>
+						<div>
+							<input
+								type="radio"
+								id="read"
+								value="read"
+								name="is-read"
+							/>
+							<label for="read">Read</label>
+						</div>
+						<div>
+							<input
+								type="radio"
+								id="unread"
+								value=""
+								name="is-read"
+							/>
+							<label for="unread">Not read yet</label>
+						</div>
+					</fieldset>
+					<button type="button" class="submit-btn">ADD BOOK</button>
+				</form>
+			</dialog>
 			<div class="wrapper">
-				<h1>Library</h1>
-				<button type="button" class="new-book-btn">NEW BOOK</button>
-				<dialog class="modal">
-					<form class="modal-form" method="dialog">
-						<h3>Add a new book</h3>
-						<div>
-							<label for="book-title">Title:</label>
-							<input type="text" id="book-title" />
-						</div>
-						<div>
-							<label for="book-author">Author:</label>
-							<input type="text" id="book-author" />
-						</div>
-						<div>
-							<label for="book-pages">Number of pages:</label>
-							<input type="number" id="book-pages" />
-						</div>
-						<fieldset>
-							<legend>The book is:</legend>
-							<div>
-								<input
-									type="radio"
-									id="read"
-									value="read"
-									name="is-read"
-								/>
-								<label for="read">Read</label>
-							</div>
-							<div>
-								<input
-									type="radio"
-									id="unread"
-									value=""
-									name="is-read"
-								/>
-								<label for="unread">Not read yet</label>
-							</div>
-						</fieldset>
-						<button type="button" class="submit-btn">
-							ADD BOOK
-						</button>
-					</form>
-				</dialog>
-				<div class="book-container"></div>
+				<div class="new-book-btn-wrapper">
+					<button type="button" class="new-book-btn">
+						NEW BOOK
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="#0259c5"
+							width="1.3rem"
+						>
+							<title>plus</title>
+							<path
+								d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+							/>
+						</svg>
+					</button>
+				</div>
+				<div class="book-wrapper"></div>
 			</div>
 		</main>
 		<script src="script.js"></script>

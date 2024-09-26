@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-const booksContainer = document.querySelector('.book-container');
+const booksContainer = document.querySelector('.book-wrapper');
 const newBookBtn = document.querySelector('.new-book-btn');
 const modal = document.querySelector('.modal');
 const submitBtn = document.querySelector('.submit-btn');
@@ -19,26 +19,26 @@ function renderBooks() {
 			const bookId = myLibrary.indexOf(book);
 			book.id = bookId;
 
-			return `<section class="book">
-                    <h3>${book.title}</h3>
-                    <p>Author: ${book.author}</p>
-                    <p>Pages: ${book.pages}</p>
-                    <div class="read-label">
-						<button
+			return `<section class="book ${book.isRead ? 'read' : 'unread'}">
+					<button
 							type="button"
-							class="read-toggle"
+							class="read-toggle-btn ${book.isRead ? 'read' : 'unread'}"
 							onClick="toggleRead(${bookId})"
 						>
-							Mark as ${book.isRead ? 'UNREAD' : 'READ'}
-						</button>
+							${book.isRead ? 'READ' : 'UNREAD'}
+					</button>
+					<div class="book-content">
+						<h2>${book.title}</h2>
+						<p>${book.author}</p>
+						<p>Pages: ${book.pages}</p>
 					</div>
-                    <button 
-                        type="button" 
-                        class="remove-book-btn" 
-                        onClick="removeBook(${bookId})"
-                        >
-                            REMOVE FROM LIBRARY
-                    </button>
+						<button 
+							type="button" 
+							class="remove-book-btn" 
+							onClick="removeBook(${bookId})"
+							>
+								REMOVE BOOK
+						</button>
                 </section>`;
 		})
 		.join(' ');
