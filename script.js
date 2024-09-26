@@ -4,6 +4,7 @@ const booksContainer = document.querySelector('.book-wrapper');
 const newBookBtn = document.querySelector('.new-book-btn');
 const modal = document.querySelector('.modal');
 const submitBtn = document.querySelector('.submit-btn');
+const cancelBtn = document.querySelector('.cancel-btn');
 const modalForm = document.querySelector('.modal-form');
 
 function Book(title, author, pages, isRead) {
@@ -79,6 +80,10 @@ function removeBook(id) {
 
 newBookBtn.addEventListener('click', () => {
 	modal.showModal();
+});
+
+cancelBtn.addEventListener('click', () => {
+	modal.close();
 });
 
 submitBtn.addEventListener('click', addBookToLibrary);
