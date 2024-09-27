@@ -54,6 +54,7 @@ h2 {
 
 p {
 	font-size: clamp(0.9rem, 0.825rem + 0.2vw, 1rem);
+	line-height: 1;
 }
 
 .btn-with-shadow {
@@ -126,7 +127,8 @@ p {
 
 .book-cards-wrapper {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+	justify-content: center;
 	gap: 1.5rem;
 }
 
