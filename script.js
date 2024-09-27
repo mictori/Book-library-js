@@ -1,10 +1,10 @@
 const myLibrary = [];
 
-const booksContainer = document.querySelector('.book-wrapper');
+const booksContainer = document.querySelector('.book-cards-wrapper');
 const newBookBtn = document.querySelector('.new-book-btn');
 const modal = document.querySelector('.modal');
-const submitBtn = document.querySelector('.submit-btn');
-const cancelBtn = document.querySelector('.cancel-btn');
+const submitBtn = document.querySelector('.submit-form-btn');
+const cancelBtn = document.querySelector('.modal-close-btn');
 const modalForm = document.querySelector('.modal-form');
 
 function Book(title, author, pages, isRead) {
@@ -31,11 +31,11 @@ function renderBooks() {
 					<div class="book-content">
 						<h2>${book.title}</h2>
 						<p>${book.author}</p>
-						<p>Pages: ${book.pages}</p>
+						<p>${book.pages ? book.pages + ' pages' : ''}</p>
 					</div>
 						<button 
 							type="button" 
-							class="remove-book-btn" 
+							class="remove-book-btn btn-with-shadow" 
 							onClick="removeBook(${bookId})"
 							>
 								REMOVE BOOK
@@ -45,7 +45,8 @@ function renderBooks() {
 		.join(' ');
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(event) {
+	event.preventDefault();
 	const title = document.querySelector('#book-title').value;
 	const author = document.querySelector('#book-author').value;
 	const pages = document.querySelector('#book-pages').value;
@@ -84,6 +85,7 @@ newBookBtn.addEventListener('click', () => {
 
 cancelBtn.addEventListener('click', () => {
 	modal.close();
+	modalForm.reset();
 });
 
 submitBtn.addEventListener('click', addBookToLibrary);

@@ -8,25 +8,46 @@
 	</head>
 	<body>
 		<header class="header-wrapper">
-			<h1>Library</h1>
+			<a href="/"><h1>Library</h1></a>
 		</header>
 		<main>
 			<dialog class="modal">
-				<form class="modal-form" method="dialog" autocomplete="off">
-					<h3>Add a new book</h3>
+				<div class="modal-close-btn-wrapper">
+					<button type="button" class="modal-close-btn">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							fill="#e85234"
+							width="1.3rem"
+						>
+							<title>close</title>
+							<path
+								d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+							/>
+						</svg>
+					</button>
+				</div>
+				<form class="modal-form" autocomplete="off" method="dialog">
+					<h2>Add a new book</h2>
+					<label for="book-title">Title:</label>
+					<input
+						type="text"
+						id="book-title"
+						name="book-title"
+						maxlength="60"
+					/>
+
+					<label for="book-author">Author:</label>
+					<input
+						type="text"
+						id="book-author"
+						name="book-author"
+						maxlength="35"
+					/>
+
+					<label for="book-pages">Number of pages:</label>
+					<input type="number" id="book-pages" name="book-pages" />
 					<div>
-						<label for="book-title">Title:</label>
-						<input type="text" id="book-title" />
-					</div>
-					<div>
-						<label for="book-author">Author:</label>
-						<input type="text" id="book-author" />
-					</div>
-					<div>
-						<label for="book-pages">Number of pages:</label>
-						<input type="number" id="book-pages" />
-					</div>
-					<fieldset>
 						<legend>The book is:</legend>
 						<div>
 							<input
@@ -35,7 +56,9 @@
 								value="read"
 								name="is-read"
 							/>
-							<label for="read">Read</label>
+							<label for="read" class="modal-form-radio"
+								>Read</label
+							>
 						</div>
 						<div>
 							<input
@@ -44,16 +67,22 @@
 								value=""
 								name="is-read"
 							/>
-							<label for="unread">Not read yet</label>
+							<label for="unread" class="modal-form-radio"
+								>Not read yet</label
+							>
 						</div>
-					</fieldset>
-					<button type="button" class="cancel-btn">CANCEL</button>
-					<button type="button" class="submit-btn">ADD BOOK</button>
+					</div>
+					<button
+						type="submit"
+						class="submit-form-btn btn-with-shadow"
+					>
+						ADD BOOK
+					</button>
 				</form>
 			</dialog>
-			<div class="wrapper">
+			<div class="main-wrapper">
 				<div class="new-book-btn-wrapper">
-					<button type="button" class="new-book-btn">
+					<button type="button" class="new-book-btn btn-with-shadow">
 						NEW BOOK
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +97,7 @@
 						</svg>
 					</button>
 				</div>
-				<div class="book-wrapper"></div>
+				<div class="book-cards-wrapper"></div>
 			</div>
 		</main>
 		<script src="script.js"></script>
